@@ -1,0 +1,615 @@
+/* ==========================================================================
+   LANDING PAGE STYLES - MOTOBOY FLORIANÓPOLIS
+   Exemplo Acadêmico de Estrutura, Estilização e Otimização para Conversão
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Variáveis de Cores e Configurações Globais (Design Tokens)
+   -------------------------------------------------------------------------- */
+:root {
+  --primary-color: #E8505B;        /* Cor primária de ação (Call to Action / Destaque) */
+  --primary-hover: #d03d48;        /* Hover da cor primária */
+  --whatsapp-color: #25d366;       /* Verde oficial WhatsApp para máxima conversão */
+  --whatsapp-hover: #1da851;       /* Hover do WhatsApp */
+  --phone-color: #007bff;          /* Azul de apoio para canal telefônico */
+  --star-color: #FFB800;           /* Dourado para estrelas de avaliação e prova social */
+  --dark-color: #263238;           /* Grafite escuro para títulos e rodapé */
+  --text-color: #676F73;           /* Cinza neutro para parágrafos e leitura confortável */
+  --light-bg: #F9FAFB;             /* Fundo suave para alternância de seções */
+  --border-color: #E5E9F0;         /* Bordas sutis de cartões */
+  --box-shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.06);
+  --box-shadow-md: 0 8px 24px rgba(0, 0, 0, 0.10);
+  --box-shadow-lg: 0 12px 36px rgba(0, 0, 0, 0.14);
+  --transition-fast: all 0.25s ease-in-out;
+  --transition-smooth: all 0.35s ease-in-out;
+}
+
+/* --------------------------------------------------------------------------
+   2. Ajustes Globais e Acessibilidade de Navegação
+   -------------------------------------------------------------------------- */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Compensação da altura da Navbar fixa para que títulos não fiquem escondidos */
+section[id],
+footer[id],
+header[id] {
+  scroll-margin-top: 85px;
+}
+
+/* --------------------------------------------------------------------------
+   3. Header & Barra de Navegação (Navbar)
+   -------------------------------------------------------------------------- */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--dark-color);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.navbar-brand i {
+  color: var(--primary-color);
+  transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover i {
+  transform: scale(1.1) rotate(-5deg);
+}
+
+.navbar-nav .nav-item {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+}
+
+.navbar-nav .nav-item a {
+  font-size: 16px;
+  font-weight: 500;
+  color: #374151;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: var(--transition-fast);
+}
+
+.navbar-nav .nav-item a:hover,
+.navbar-nav .nav-item a.active {
+  color: var(--primary-color);
+}
+
+/* Botão de Destaque no Menu (Pedido Online CTA) */
+.nav-btn-order {
+  background: var(--primary-color) !important;
+  color: #fff !important;
+  font-weight: 600 !important;
+  border-radius: 50px !important;
+  padding: 8px 20px !important;
+  box-shadow: 0 4px 12px rgba(232, 80, 91, 0.3);
+  transition: var(--transition-fast) !important;
+}
+
+.nav-btn-order:hover {
+  background: var(--primary-hover) !important;
+  color: #fff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(232, 80, 91, 0.45);
+}
+
+.nav-social-links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-social-links a {
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #F3F4F6;
+  color: #4B5563 !important;
+  font-size: 14px;
+  padding: 0 !important;
+  transition: var(--transition-fast);
+}
+
+.nav-social-links a:hover {
+  background: var(--primary-color);
+  color: #fff !important;
+  transform: translateY(-2px);
+}
+
+/* --------------------------------------------------------------------------
+   4. Seção Hero (Primeira Dobra / Proposta de Valor)
+   -------------------------------------------------------------------------- */
+.hero-section {
+  position: relative;
+  padding-top: 130px;
+  padding-bottom: 70px;
+  background: linear-gradient(180deg, rgba(232, 80, 91, 0.04) 0%, rgba(255, 255, 255, 1) 100%);
+  overflow: hidden;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(232, 80, 91, 0.1);
+  color: var(--primary-color);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 6px 16px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+}
+
+.hero-title {
+  font-size: 52px;
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--dark-color);
+  margin-bottom: 20px;
+}
+
+.hero-title span {
+  color: var(--primary-color);
+}
+
+.hero-description {
+  font-size: 19px;
+  line-height: 1.6;
+  color: var(--text-color);
+  margin-bottom: 30px;
+}
+
+.hero-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 35px;
+}
+
+.btn-cta-primary {
+  background: var(--primary-color);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 14px 28px;
+  border-radius: 50px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 15px rgba(232, 80, 91, 0.35);
+  transition: var(--transition-fast);
+  text-decoration: none;
+}
+
+.btn-cta-primary:hover {
+  background: var(--primary-hover);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(232, 80, 91, 0.45);
+}
+
+.btn-cta-whatsapp {
+  background: var(--whatsapp-color);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 14px 28px;
+  border-radius: 50px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.35);
+  transition: var(--transition-fast);
+  text-decoration: none;
+}
+
+.btn-cta-whatsapp:hover {
+  background: var(--whatsapp-hover);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.45);
+}
+
+.btn-cta-phone {
+  background: #fff;
+  color: var(--dark-color);
+  border: 2px solid var(--border-color);
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 50px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: var(--transition-fast);
+  text-decoration: none;
+}
+
+.btn-cta-phone:hover {
+  border-color: var(--dark-color);
+  color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+.hero-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.hero-highlight-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #4B5563;
+}
+
+.hero-highlight-item i {
+  color: #10B981;
+  font-size: 16px;
+}
+
+.hero-image-wrapper {
+  position: relative;
+  text-align: center;
+}
+
+.hero-image-wrapper img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: var(--box-shadow-md);
+}
+
+/* --------------------------------------------------------------------------
+   5. Prova Social & Avaliações (Seção Sobre)
+   -------------------------------------------------------------------------- */
+.rating-meta-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-color);
+}
+
+.rating-badge {
+  background: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: var(--box-shadow-sm);
+  transition: var(--transition-fast);
+  text-decoration: none;
+  color: inherit;
+}
+
+.rating-badge:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--box-shadow-md);
+  color: inherit;
+}
+
+.rating-badge-icon {
+  font-size: 28px;
+}
+
+.rating-badge-icon.fb {
+  color: #1877F2;
+}
+
+.rating-badge-icon.google {
+  color: #EA4335;
+}
+
+.rating-badge-info h6 {
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0;
+  color: var(--dark-color);
+}
+
+.rating-badge-stars {
+  color: var(--star-color);
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  margin-top: 2px;
+}
+
+.rating-badge-score {
+  font-weight: 700;
+  color: var(--dark-color);
+  margin-left: 4px;
+}
+
+.rating-badge-count {
+  font-size: 12px;
+  color: var(--text-color);
+  margin-left: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   6. Cards de Serviços
+   -------------------------------------------------------------------------- */
+.service-card {
+  background: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 35px 25px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition-smooth);
+  box-shadow: var(--box-shadow-sm);
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--box-shadow-md);
+  border-color: rgba(232, 80, 91, 0.3);
+}
+
+.service-card-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 14px;
+  background: rgba(232, 80, 91, 0.08);
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  margin-bottom: 22px;
+  transition: var(--transition-fast);
+}
+
+.service-card:hover .service-card-icon {
+  background: var(--primary-color);
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.service-card h4 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--dark-color);
+}
+
+.service-card p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-color);
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.service-card-action a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--primary-color);
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+.service-card-action a:hover {
+  color: var(--primary-hover);
+  gap: 10px;
+}
+
+/* --------------------------------------------------------------------------
+   7. Botão Flutuante do WhatsApp (Conversão Imediata)
+   -------------------------------------------------------------------------- */
+.whatsapp-float {
+  position: fixed;
+  width: 62px;
+  height: 62px;
+  bottom: 30px;
+  left: 30px;
+  background-color: var(--whatsapp-color);
+  color: #fff !important;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 34px;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45);
+  z-index: 9999;
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+.whatsapp-float:hover {
+  background-color: var(--whatsapp-hover);
+  color: #fff !important;
+  transform: scale(1.1);
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.65);
+}
+
+.whatsapp-float-pulse {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--whatsapp-color);
+  opacity: 0.6;
+  animation: waPulse 2s infinite ease-out;
+  z-index: -1;
+}
+
+@keyframes waPulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  70% {
+    transform: scale(1.45);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.45);
+    opacity: 0;
+  }
+}
+
+.whatsapp-tooltip {
+  position: absolute;
+  left: 75px;
+  background: var(--dark-color);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  padding: 6px 14px;
+  border-radius: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition-fast);
+  box-shadow: var(--box-shadow-sm);
+  pointer-events: none;
+}
+
+.whatsapp-float:hover .whatsapp-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(5px);
+}
+
+/* --------------------------------------------------------------------------
+   8. Botão Voltar ao Topo (Scroll-to-top)
+   -------------------------------------------------------------------------- */
+.scroll-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 46px;
+  height: 46px;
+  background: var(--primary-color);
+  color: #fff !important;
+  border-radius: 50%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  box-shadow: 0 4px 15px rgba(232, 80, 91, 0.35);
+  z-index: 999;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  text-decoration: none;
+}
+
+.scroll-top:hover {
+  background: var(--primary-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(232, 80, 91, 0.5);
+}
+
+/* --------------------------------------------------------------------------
+   9. Rodapé & Créditos
+   -------------------------------------------------------------------------- */
+.footer-credit {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.footer-credit a {
+  color: #fff;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.footer-credit a:hover {
+  color: var(--primary-color);
+}
+
+/* --------------------------------------------------------------------------
+   10. Responsividade para Dispositivos Móveis e Tablets
+   -------------------------------------------------------------------------- */
+@media (max-width: 991px) {
+  .hero-section {
+    padding-top: 110px;
+    padding-bottom: 50px;
+    text-align: center;
+  }
+
+  .hero-cta-group {
+    justify-content: center;
+  }
+
+  .hero-highlights {
+    justify-content: center;
+  }
+
+  .hero-image-wrapper {
+    margin-top: 40px;
+  }
+
+  .navbar-nav .nav-item {
+    margin-left: 0;
+    margin-bottom: 8px;
+  }
+
+  .nav-social-links {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-title {
+    font-size: 34px;
+  }
+
+  .hero-description {
+    font-size: 16px;
+  }
+
+  .btn-cta-primary,
+  .btn-cta-whatsapp,
+  .btn-cta-phone {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .whatsapp-float {
+    width: 54px;
+    height: 54px;
+    font-size: 30px;
+    bottom: 20px;
+    left: 20px;
+  }
+
+  .whatsapp-tooltip {
+    display: none; /* Não exibe tooltip em telas sensíveis ao toque */
+  }
+
+  .scroll-top {
+    bottom: 20px;
+    right: 20px;
+    width: 42px;
+    height: 42px;
+    font-size: 18px;
+  }
+}
